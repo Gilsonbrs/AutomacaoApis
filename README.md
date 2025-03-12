@@ -1,6 +1,6 @@
 # Testes de API com Java e RestAssured
 
-Este repositório contém a implementação de testes automatizados para APIs utilizando **Java** e a biblioteca **RestAssured**. O objetivo é validar endpoints de APIs REST, garantindo sua funcionalidade e confiabilidade.
+Este repositório contém a implementação de testes automatizados para APIs utilizando **Java** e a biblioteca **RestAssured**. O objetivo é validar endpoints de APIs REST, garantindo sua funcionalidade.
 
 ## Tecnologias Utilizadas
 - **Java** (versão recomendada: 17+)
