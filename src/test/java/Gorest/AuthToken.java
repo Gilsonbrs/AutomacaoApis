@@ -3,6 +3,8 @@ package Gorest;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
@@ -39,5 +41,16 @@ public class AuthToken {
                 .then()
                 .statusCode(200);
 
+    }
+
+    @Test
+    public void testeAuthBasicUserAndPass(){
+        String userPass = "{\"username\": \"emilys\" ,\"password\" :\"emilyspass\"}";
+        Response response = RestAssured.given().contentType(ContentType.JSON)
+                .body(userPass)
+                .when().post("https://dummyjson.com/auth/login");
+        response.prettyPrint();
+        String token = response.jsonPath().getString("accessToken");
+        System.out.println("Seu Token é: " + token);
     }
 }
