@@ -78,3 +78,4 @@ public void testCreateUser() {
 - [Curso: Testes de API com Java e RestAssured](https://plataforma.etech.dev/175102-testes-de-api-com-java-restassured)
 - [Documentação RestAssured](https://rest-assured.io/)
 - [JUnit 5](https://junit.org/junit5/)
+- [LinkedIn](https://www.linkedin.com/in/gilsonrbs/)
