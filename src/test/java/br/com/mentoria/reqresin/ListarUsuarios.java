@@ -17,14 +17,15 @@ import static org.hamcrest.Matchers.*;
 
 public class ListarUsuarios {
         private static RequestSpecification reqSpec;
+
         @BeforeAll
-        static  void setup (){
+        static void setup() {
                 RestAssured.baseURI = "https://reqres.in";
                 //             port = 8080
                 basePath = "/api";
                 RequestSpecBuilder requestBuilder = new RequestSpecBuilder();
                 requestBuilder.log(LogDetail.ALL);
-                 reqSpec = requestBuilder.build();
+                reqSpec = requestBuilder.build();
         }
 
         @Test
@@ -44,18 +45,19 @@ public class ListarUsuarios {
                 given()
                         .spec(reqSpec)
                         .when()
-                                .get("/users?page=2")
+                        .get("/users?page=2")
                         .then()
-                                .log()
-                                .all()
+                        .log()
+                        .all()
                         .statusCode(200)
-                        .body("page",is (2))
-                        .body("per_page",is (6))
-                        .body("total",greaterThan (10))
-                        .body("total_pages", lessThan (5));
+                        .body("page", is(2))
+                        .body("per_page", is(6))
+                        .body("total", greaterThan(10))
+                        .body("total_pages", lessThan(5));
         }
+
         @Test
-        public void JuniValidacaoResgatarLista(){
+        public void JuniValidacaoResgatarLista() {
                 Response response = RestAssured.request(Method.GET, "https://reqres.in/api/users?page=2");
 
                 //path
@@ -70,9 +72,26 @@ public class ListarUsuarios {
 
                 //from
                 int page = JsonPath.from(response.asString()).getInt("page");
-
-
+                int total = JsonPath.from(response.asString()).getInt("total");
+                Assertions.assertEquals(2, page);
+                Assertions.assertEquals(12, total);
 
         }
 
+        @Test
+        public void validacaoComplexaJson() {
+                given()
+                        .spec(reqSpec)
+                        .when()
+                        .get("/users?page=2")
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(200)
+                        .body("data.id", hasSize(6))
+                        .body("data[0].id", is(7))
+                        .body("data.first_name", hasItem("George"))
+                        .body("data.first_name",hasItems("Byron","George"))
+                        .body("data.id",notNullValue());
+        }
 }
