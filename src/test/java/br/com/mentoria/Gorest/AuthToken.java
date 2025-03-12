@@ -1,4 +1,4 @@
-package Gorest;
+package br.com.mentoria.Gorest;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
