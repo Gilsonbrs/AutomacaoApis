@@ -28,6 +28,13 @@ Antes de começar, certifique-se de ter instalado:
    ```sh
    mvn test
    ```
+## O que foi implementado
+Este projeto contém testes automatizados para validar endpoints de uma API REST. Foram implementados:
+- Testes de requisições **GET** para validar a resposta de listagem de usuários.
+- Testes de requisições **POST** para criação de novos usuários.
+- Validações de **status code** e **corpo da resposta** utilizando JSONPath.
+- Estrutura modularizada para facilitar a reutilização de código.
+
 
 ## Estrutura do Projeto
 ```
