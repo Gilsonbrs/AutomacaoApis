@@ -68,6 +68,11 @@ public class ListarUsuarios {
                 Assertions.assertEquals(2, jsonPath.getInt("total_pages"));
 
 
+                //from
+                int page = JsonPath.from(response.asString()).getInt("page");
+
+
+
         }
 
 }
