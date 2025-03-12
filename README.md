@@ -53,17 +53,25 @@ Este projeto contém testes automatizados para validar endpoints de uma API REST
 ## Estrutura do Projeto
 ```
 AutomacaoApis/
-src/
-   test/
-       java/
-           tests/
-               ApiTest.java
-           utils/
-               Config.java
-               RequestFactory.java
-pom.xml
-README.md
-```
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── config/
+│   │   │   │   ├── Config.java
+│   │   │   ├── factories/
+│   │   │   │   ├── RequestFactory.java
+│   │   │   ├── models/
+│   │   │   │   ├── User.java
+│   │   ├── resources/
+│   │   │   ├── testData.json
+│   ├── test/
+│   │   ├── java/
+│   │   │   ├── tests/
+│   │   │   │   ├── AuthTests.java
+│   │   │   │   ├── UserTests.java
+├── pom.xml
+├── README.md
+
 
 ## Exemplos de Testes
 ### Testando um GET Request
